@@ -1,209 +1,213 @@
-import Head from 'next/head'
+import { Check } from 'react-feather'
+
+import Layout from '../layouts/main'
+import Divider from '../components/divider'
+import Card from '../components/card'
+import Button from '../components/button'
 
 export default function Home() {
   return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <Layout>
+      <section className="section-home-hero">
+        <div className="home-hero-img" />
+      </section>
+      <section className="section-home-features">
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <div className="home-features-item">
+                <div className="home-features-item-icon">
+                  <Check size={16} />
+                </div>
+                <div className="home-features-item-label">
+                  Chất liệu thiên nhiên
+                </div>
+              </div>
+            </div>
+            <div className="col">
+              <div className="home-features-item">
+                <div className="home-features-item-icon">
+                  <Check size={16} />
+                </div>
+                <div className="home-features-item-label">
+                  Thân thiện môi trường
+                </div>
+              </div>
+            </div>
+            <div className="col">
+              <div className="home-features-item">
+                <div className="home-features-item-icon">
+                  <Check size={16} />
+                </div>
+                <div className="home-features-item-label">
+                  Sản xuất thủ công
+                </div>
+              </div>
+            </div>
+            <div className="col">
+              <div className="home-features-item">
+                <div className="home-features-item-icon">
+                  <Check size={16} />
+                </div>
+                <div className="home-features-item-label">
+                  Giao hàng tận nơi
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
+      </section>
+      <section className="section-home-menu">
+        <div className="home-menu-branches">
+          <div className="home-menu-branches-img" />
+        </div>
+        <div className="home-menu-list">
+          <div className="container">
+            <div className="home-menu-content">
+              <h2 className="home-menu-heading">
+                Chung tay Bảo vệ Môi Trường Xanh
+              </h2>
+              <Divider />
+              <div className="lead home-menu-lead">
+                <p>Lorem id consequat enim tempor do minim. Eiusmod ea tempor do nisi sint voluptate sunt anim esse duis duis pariatur voluptate.</p>
+                <p>Et esse magna elit consectetur incididunt adipisicing. Nisi occaecat amet pariatur labore in culpa deserunt culpa in in aliqua esse id. Velit Lorem Lorem fugiat magna labore dolore cupidatat cupidatat ipsum. In quis et eiusmod enim fugiat ea.</p>
+              </div>
+            </div>
+            <div className="row category-row">
+              <div className="col">
+                <Card image="/images/category-1.jpg" title="GIỎ BÀNG ĐI CHỢ" />
+              </div>
+              <div className="col">
+                <Card image="/images/category-2.jpg" title="PHỤ KIỆN THỜI TRANG" />
+              </div>
+              <div className="col">
+                <Card image="/images/category-3.jpg" title="TÚI XÁCH HOẠ TIẾT" />
+              </div>
+              <div className="col">
+                <Card image="/images/category-4.jpg" title="SẢN PHẨM SÁNG TẠO" />
+              </div>
+            </div>
+            <div className="category-action"><Button label="Tất cả Danh mục" /></div>
+          </div>
+        </div>
+      </section>
       <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+        .section-home-hero {
+          position: relative;
+          background-color: #202024;
         }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
+        .home-hero-img {
+          background-image: url(/images/hero-img.jpg);
+          background-position: 50%;
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: absolute;
           width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
+          height: 100vh;
+          display: block;
+        }
+        .section-home-features {
+          position: absolute;
+          bottom: 0;
+          z-index: 2;
+          width: 100%;
+          padding-top: .5rem;
+          padding-bottom: .5rem;
+          background-color: #202024;
+          color: #212529;
+        }
+        .section-home-features .container {
+          padding-left: 30px;
+          padding-right: 30px;
+          margin-right: auto;
+          margin-left: auto;
+          max-width: 1260px;
+        }
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          margin-right: -15px;
+          margin-left: -15px;
+        }
+        .col {
+          flex: 0 0 25%;
+          max-width: 25%;
+          position: relative;
+        }
+        .home-features-item {
+          display: flex;
+          padding: 1rem 0;
+          justify-content: center;
+          align-items: center;
+          flex: 1;
+        }
+        .home-features-item-icon {
+          width: 20px;
+          height: 20px;
+          border-radius: 10px;
+          margin-right: .5em;
+          position: relative;
+          background-color: #ffffff;
           display: flex;
           justify-content: center;
           align-items: center;
         }
-
-        footer img {
-          margin-left: 0.5rem;
+        .home-features-item-label {
+          font-size: 14px;
+          font-weight: 400;
+          letter-spacing: .15em;
+          text-transform: uppercase;
+          color: #ffffff;
         }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        .section-home-menu {
+          background: #fff;
+          position: relative;
+          top: 100vh;
+          padding-top: 6rem;
+          padding-bottom: 6rem;
         }
-
-        a {
-          color: inherit;
-          text-decoration: none;
+        .home-menu-branches {
+          position: absolute;
+          top: 1rem;
+          z-index: 0;
+          width: 100%;
         }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
+        .home-menu-branches-img {
+          width: 500px;
+          height: 757px;
+          background-size: contain;
+          max-width: 100%;
+          opacity: .8;
+          background-image: url(/images/branch-1.png);
         }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
+        .home-menu-content {
           text-align: center;
         }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
+        .home-menu-heading {
+          font-size: 42px;
+          margin-bottom: 1.5rem;
+          color: #577941;
+          font-weight: 600;
         }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+        .home-menu-lead {
+          margin: 1rem auto 2rem;
+          max-width: 40em;
         }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
+        .category-row {
+          margin-right: -7.5px;
+          margin-left: -7.5px;
         }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
+        .home-menu-list {
+          position: relative;
         }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
+        .category-row .col {
+          padding: 0px 7px;
         }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
+        .category-action {
+          padding-top: 2rem;
+          text-align: center;
         }
       `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
+    </Layout>
   )
 }
