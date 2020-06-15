@@ -9,7 +9,7 @@ const Footer = () => (
       <Container fluid>
         <div className="section-info">
           <Row>
-            <Col lg={3}>
+            <Col lg={3} style={{padding: '2rem 15px'}}>
               <div className="footer-brand-text">
                 CỎ BÀNG<br /><strong>HANDMADE</strong>
               </div>
@@ -18,14 +18,14 @@ const Footer = () => (
               </div>
               <div className="footer-social-list">
                 <a className="footer-social-item">
-                  <Facebook />
+                  <Facebook size={18} />
                 </a>
                 <a className="footer-social-item">
-                  <Instagram />
+                  <Instagram size={18} />
                 </a>
               </div>
             </Col>
-            <Col lg={3}>
+            <Col lg={3} style={{padding: '2rem 15px'}}>
               <div className="footer-list-title">DANH MỤC SẢN PHẨM</div>
               <ul className="footer-list">
                 <li className="footer-list-item">
@@ -50,7 +50,7 @@ const Footer = () => (
                 </li>
               </ul>
             </Col>
-            <Col lg={3}>
+            <Col lg={3} style={{padding: '2rem 15px'}}>
               <div className="footer-list-title">THÔNG TIN</div>
               <ul className="footer-list">
                 <li className="footer-list-item">
@@ -70,7 +70,7 @@ const Footer = () => (
                 </li>
               </ul>
             </Col>
-            <Col lg={3}>
+            <Col lg={3} style={{padding: '2rem 15px'}}>
               <div className="footer-subscription-title">ĐĂNG KÝ NHẬN BẢN TIN</div>
               <div className="footer-subscription-text">
                 Nhận thông tin sản phẩm và ưu đãi đặc biệt từ Cỏ Bàng Handmade
@@ -100,7 +100,7 @@ const Footer = () => (
         margin-bottom: 20px;
       }
       .section-info {
-        padding: 4rem 15px;
+        padding: 1rem 15px;
       }
       .section-copyright {
         border-top: 1px solid #fff;
@@ -114,6 +114,7 @@ const Footer = () => (
         font-size: 12px;
         font-weight: 600;
         letter-spacing: 2px;
+        margin-top: 10px;
       }
       .footer-subscription-title {
         text-transform: uppercase;
@@ -121,6 +122,7 @@ const Footer = () => (
         font-size: 13px;
         font-weight: 600;
         letter-spacing: 2px;
+        margin-top: 10px;
       }
       .footer-list {
         list-style: none;
@@ -176,7 +178,8 @@ const Footer = () => (
         color: #fff;
         letter-spacing: 0.5px;
         font-size: 13px;
-        margin-top: 10px;
+        margin-top: 15px;
+        line-height: 18px;
       }
       .footer-text {
         color: #fff;
