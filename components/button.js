@@ -29,6 +29,13 @@ const Button = ({label}) => (
         background-color: #354f24;
         border-color: #354f24;
       }
+      @media (max-width: 991.98px) {
+        .btn {
+          padding: .65rem 1.3rem;
+          font-size: 14px;
+          line-height: 1.3;
+        }
+      }
     `}</style>
   </>
 );

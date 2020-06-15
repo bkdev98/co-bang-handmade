@@ -1,4 +1,5 @@
-import { User, ShoppingBag } from 'react-feather'
+import { User, ShoppingBag, Menu } from 'react-feather'
+import { Visible } from 'react-grid-system'
 
 const Header = () => (
   <>
@@ -11,28 +12,30 @@ const Header = () => (
             </div>
           </h1>
           <div className="navbar-collapse">
-            <ul className="navbar-nav">
-              <li>
-                <a className="nav-link">
-                  SẢN PHẨM
-                </a>
-              </li>
-              <li>
-                <a className="nav-link">
-                  GIỚI THIỆU
-                </a>
-              </li>
-              <li>
-                <a className="nav-link">
-                  BLOG
-                </a>
-              </li>
-              <li>
-                <a className="nav-link">
-                  LIÊN HỆ
-                </a>
-              </li>
-            </ul>
+            <Visible md lg xl xxl>
+              <ul className="navbar-nav">
+                <li>
+                  <a className="nav-link">
+                    SẢN PHẨM
+                  </a>
+                </li>
+                <li>
+                  <a className="nav-link">
+                    GIỚI THIỆU
+                  </a>
+                </li>
+                <li>
+                  <a className="nav-link">
+                    BLOG
+                  </a>
+                </li>
+                <li>
+                  <a className="nav-link">
+                    LIÊN HỆ
+                  </a>
+                </li>
+              </ul>
+            </Visible>
           </div>
           <ul className="navbar-icons">
             <li>
@@ -45,6 +48,13 @@ const Header = () => (
                 <ShoppingBag size={20} />
               </a>
             </li>
+            <Visible xs sm>
+              <li>
+                <a className="nav-link">
+                  <Menu size={20} />
+                </a>
+              </li>    
+            </Visible>
           </ul>
         </nav>
       </div>
@@ -101,6 +111,14 @@ const Header = () => (
         align-items: center;
         list-style: none;
         margin: 0;
+      }
+      @media (max-width: 991.98px) {
+        .navbar-brand-text {
+          font-size: 16px;
+        }
+        .navbar {
+          padding: 0.6rem 0px;
+        }
       }
     `}</style>
   </>

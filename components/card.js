@@ -62,6 +62,15 @@ const Card = ({image, title}) => (
         text-align: center;
         color: #212529;
       }
+      @media (max-width: 991.98px) {
+        .card-header {
+          padding: 1.3rem 12px;
+        }
+        .card-title {
+          font-size: 14px;
+          line-height: 1.1em;
+        }
+      }
     `}</style>
   </>
 );

@@ -16,7 +16,7 @@ export default function Home() {
         <div className="container">
           <Container fluid>
             <Row>
-              <Col lg={3} md={6}>
+              <Col lg={3} xs={6}>
                 <div className="home-features-item">
                   <div className="home-features-item-icon">
                     <Check size={16} />
@@ -26,7 +26,7 @@ export default function Home() {
                   </div>
                 </div>
               </Col>
-              <Col lg={3} md={6}>
+              <Col lg={3} xs={6}>
                 <div className="home-features-item">
                   <div className="home-features-item-icon">
                     <Check size={16} />
@@ -36,7 +36,7 @@ export default function Home() {
                   </div>
                 </div>
               </Col>
-              <Col lg={3} md={6}>
+              <Col lg={3} xs={6}>
                 <div className="home-features-item">
                   <div className="home-features-item-icon">
                     <Check size={16} />
@@ -46,7 +46,7 @@ export default function Home() {
                   </div>
                 </div>
               </Col>
-              <Col lg={3} md={6}>
+              <Col lg={3} xs={6}>
                 <div className="home-features-item">
                   <div className="home-features-item-icon">
                     <Check size={16} />
@@ -77,17 +77,17 @@ export default function Home() {
               </div>
             </div>
             <Container fluid>
-              <Row gutterWidth={15}>
-                <Col lg={3} sm={6} style={{marginBottom: 15}}>
+              <Row gutterWidth={15} style={{marginLeft: -20, marginRight: -20}}>
+                <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
                   <Card image="/images/category-1.jpg" title="GIỎ BÀNG ĐI CHỢ" />
                 </Col>
-                <Col lg={3} sm={6} style={{marginBottom: 15}}>
+                <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
                   <Card image="/images/category-2.jpg" title="PHỤ KIỆN THỜI TRANG" />
                 </Col>
-                <Col lg={3} sm={6} style={{marginBottom: 15}}>
+                <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
                   <Card image="/images/category-3.jpg" title="TÚI XÁCH HOẠ TIẾT" />
                 </Col>
-                <Col lg={3} sm={6} style={{marginBottom: 15}}>
+                <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
                   <Card image="/images/category-4.jpg" title="SẢN PHẨM SÁNG TẠO" />
                 </Col>
               </Row>
@@ -112,14 +112,14 @@ export default function Home() {
           <div className="home-about-overlay" />
           <div className="home-about-inner">
             <div className="container">
-              <div className="home-about-col">
+              <Col lg={6} md={8} sm={10} xs={12}>
                 <h2 className="home-about-heading">Khát khao về một hành tinh xanh</h2>
                 <div style={{display: 'inline-block'}}><Divider color="#fff" /></div>
                 <div className="home-about-text">
                   <p>Consequat dolor amet quis cillum culpa est aute eiusmod consectetur. Non anim Lorem commodo consequat excepteur excepteur do. Cupidatat consequat mollit veniam ipsum adipisicing aliquip mollit amet aliqua. Exercitation duis commodo sit excepteur.</p>
                 </div>
                 <Button label="Câu chuyện của chúng tôi" />
-              </div>
+              </Col>
             </div>
           </div>
         </div>
@@ -404,6 +404,68 @@ export default function Home() {
           color: #fff;
           letter-spacing: 1.5px;
           font-weight: 300;
+        }
+        @media (max-width: 991.98px) {
+          .home-features-item-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+          }
+          .home-features-item-label {
+            font-size: 12.5px;
+          }
+          .home-about-inner {
+            padding: 4rem 0px;
+            position: relative;
+          }
+          .home-menu-subheading {
+            font-size: 28px;
+          }
+          .home-menu-products-inner {
+            padding-top: 6rem;
+            padding-bottom: 8rem;
+            position: relative;
+            text-align: center;
+          }
+          .home-about-heading {
+            font-size: 35px;
+            margin-bottom: 1.3rem;
+            line-height: 1;
+          }
+          .home-about-text {
+            margin-top: 0.8rem;
+            margin-bottom: 1.8rem;
+            font-size: 16px;
+          }
+          .home-about-inner {
+            padding: 5rem 0px;
+          }
+          .home-testimonials-inner {
+            padding-top: 4.5rem;
+            padding-bottom: 5.5rem;
+          }
+          .home-testimonials-quote {
+            font-size: 18px;
+            letter-spacing: 1.3px;
+          }
+          .home-testimonials-cite {
+            margin-top: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 13px;
+          }
+          .home-news-inner {
+            padding-top: 4.5rem;
+            padding-bottom: 4.5rem;
+          }
+          .home-news-content h2 {
+            font-size: 32px;
+            margin-bottom: 1.3rem;
+          }
+          .home-news-content p {
+            max-width: 36em;
+            margin: 0.8rem auto 1.8rem;
+            letter-spacing: 1.3px;
+          }
         }
       `}</style>
     </Layout>

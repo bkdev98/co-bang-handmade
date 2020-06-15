@@ -46,6 +46,17 @@ const MainLayout = ({children}) => (
         line-height: 1.5em;
         font-weight: 300;
       }
+
+      @media (max-width: 991.98px) {
+        .container {
+          padding: 0px 15px;
+        }
+  
+        .lead {
+          font-size: 16px;
+          line-height: 1.3em;
+        }
+      }
     `}</style>
   </div>
 );
