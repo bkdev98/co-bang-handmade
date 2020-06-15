@@ -22,6 +22,7 @@ const Button = ({label}) => (
         color: #fff;
         background-color: #577941;
         border-color: #577941;
+        cursor: pointer;
       }
       .btn:hover {
         color: #fff;

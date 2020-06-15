@@ -11,6 +11,7 @@ const Card = ({image, title}) => (
     </div>
     <style jsx>{`
       .card {
+        cursor: pointer;
         box-shadow: 0 0 20px 0 rgba(0,0,0,.12);
         flex-grow: 1;
         display: flex;
@@ -33,7 +34,7 @@ const Card = ({image, title}) => (
         background-position: 50% 50%;
         background-size: cover;
         position: relative;
-        height: 170px;
+        height: 200px;
       }
       .card-img {
         background-position: 50% 50%;
