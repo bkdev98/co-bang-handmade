@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import Header from '../components/header'
+import Footer from '../components/footer'
 
 const MainLayout = ({children}) => (
   <div>
@@ -15,7 +16,7 @@ const MainLayout = ({children}) => (
     </main>
 
     <footer>
-      
+      <Footer />
     </footer>
 
     <style jsx global>{`
@@ -45,6 +46,12 @@ const MainLayout = ({children}) => (
         font-size: 18px;
         line-height: 1.5em;
         font-weight: 300;
+      }
+
+      footer {
+        background: #202024;
+        position: relative;
+        top: 100vh;
       }
 
       @media (max-width: 991.98px) {

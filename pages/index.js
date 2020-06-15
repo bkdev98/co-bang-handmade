@@ -168,6 +168,29 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="section-home-gift">
+        <div className="home-gift-bg">
+          <div className="home-gift-inner">
+            <div className="container">
+              <Container fluid>
+                <Row style={{alignItems: 'center'}}>
+                  <Col md={3}>
+                    <h2 className="home-gift-heading">Món quà dành cho người bạn yêu thương</h2>
+                  </Col>
+                  <Col md={6}>
+                    <div className="home-gift-text">
+                      Nisi nisi labore elit aliquip irure esse. Nostrud irure esse adipisicing ex qui. Adipisicing in amet adipisicing laborum laborum consequat ea ex labore qui mollit anim.
+                    </div>
+                  </Col>
+                  <Col md={3} style={{textAlign: 'right'}}>
+                    <Button type="secondary" label="Mua Thẻ quà tặng" />
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+          </div>
+        </div>
+      </section>
       <style jsx>{`
         .section-home-hero {
           position: relative;
@@ -420,6 +443,33 @@ export default function Home() {
           color: #fff;
           letter-spacing: 1.5px;
           font-weight: 300;
+        }
+        .section-home-gift {
+          position: relative;
+          top: 100vh;
+        }
+        .home-gift-bg {
+          background-color: #354f24;
+          background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10L82 4l17.32 10zm-80 80l-1 1.732-17.32-10L2 84l17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10L62 24l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM111 40h-2V20h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10L42 44l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM91 60h-2V40h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM39.32 74l-1 1.732-17.32-10L22 64l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM71 80h-2V60h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM120 89v2h-20v-2h20zm-84.134 9.16l-1.732 1-10-17.32 1.732-1 10 17.32zM51 100h-2V80h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM100 109v2H80v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM31 120h-2v-20h2v20z' fill='%23577941' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .home-gift-inner {
+          padding: 4rem 3rem;
+        }
+        .home-gift-heading {
+          color: #fff;
+          font-size: 34px;
+          margin-bottom: 1.5rem;
+          font-weight: 400;
+          line-height: 1.2;
+        }
+        .home-gift-text {
+          color: #fff;
+          margin-top: 1rem;
+          margin-bottom: 2rem;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 30px;
+          margin-left: 40px;
         }
         @media (max-width: 991.98px) {
           .home-features-item-icon {

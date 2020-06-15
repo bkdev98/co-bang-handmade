@@ -1,6 +1,6 @@
-const Button = ({label, ...props}) => (
+const Button = ({label, type = 'primary', ...props}) => (
   <>
-    <a className="btn" {...props}>
+    <a className={`btn ${type}`} {...props}>
       {label}
     </a>
     <style jsx>{`
@@ -19,15 +19,27 @@ const Button = ({label, ...props}) => (
         transition: color .3s ease,background-color .3s ease,border-color .3s ease,box-shadow .3s ease;
         font-weight: 600;
         letter-spacing: .04em;
+        cursor: pointer;
+      }
+      .primary {
         color: #fff;
         background-color: #577941;
         border-color: #577941;
-        cursor: pointer;
       }
-      .btn:hover {
+      .primary:hover {
         color: #fff;
         background-color: #354f24;
         border-color: #354f24;
+      }
+      .secondary {
+        background-color: #fff;
+        border-color: #fff;
+        color: #212529;
+      }
+      .secondary:hover {
+        background-color: #d6d6d6;
+        border-color: #d6d6d6;
+        color: #212529;
       }
       @media (max-width: 991.98px) {
         .btn {
