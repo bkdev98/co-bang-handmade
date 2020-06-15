@@ -532,6 +532,21 @@ export default function Home() {
             margin: 0.8rem auto 1.8rem;
             letter-spacing: 1.3px;
           }
+          .home-gift-inner {
+            padding: 3rem 2rem;
+          }
+          .home-gift-heading {
+            font-size: 30px;
+            margin-bottom: 1.3rem;
+            line-height: 1;
+          }
+          .home-gift-text {
+            margin-top: 0.8rem;
+            margin-bottom: 1.8rem;
+            font-size: 18px;
+            line-height: 26px;
+            margin-left: 0px;
+          }
         }
       `}</style>
     </Layout>
