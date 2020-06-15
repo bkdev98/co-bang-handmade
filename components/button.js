@@ -1,6 +1,6 @@
-const Button = ({label, type = 'primary', ...props}) => (
+const Button = ({label, type = 'primary', append, ...props}) => (
   <>
-    <a className={`btn ${type}`} {...props}>
+    <a className={`btn ${type} ${append && 'append'}`} {...props}>
       {label}
     </a>
     <style jsx>{`
@@ -40,6 +40,14 @@ const Button = ({label, type = 'primary', ...props}) => (
         background-color: #d6d6d6;
         border-color: #d6d6d6;
         color: #212529;
+      }
+      .append {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: .05em;
+        text-transform: none;
       }
       @media (max-width: 991.98px) {
         .btn {
