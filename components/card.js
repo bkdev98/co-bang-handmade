@@ -1,12 +1,18 @@
-const Card = ({image, title}) => (
+import Tag from './tag'
+
+const Card = ({image, title, type = 'category', tag}) => (
   <>
     <div className="card">
       <div className="card-img-wrap">
         <div className="card-overlay" />
         <div className="card-img" style={{backgroundImage: `url(${image})`}} />
       </div>
-      <div className="card-header">
-        <div className="card-title">{title}</div>
+      <div className={type}>
+        <div className="card-header">
+          {tag && <Tag label={tag} style={{marginBottom: 5}} />}
+          <div className="card-title">{title}</div>
+          {type === 'article' && <a className="readmore">Đọc tiếp</a>}
+        </div>
       </div>
     </div>
     <style jsx>{`
@@ -48,10 +54,10 @@ const Card = ({image, title}) => (
       .card .card-img-wrap:hover .card-overlay {
         opacity: .3;
       }
-      .card-header {
+      .category .card-header {
         padding: 1.5rem 16px;
       }
-      .card-title {
+      .category .card-title {
         padding: 0;
         margin: 0;
         border: none;
@@ -62,13 +68,45 @@ const Card = ({image, title}) => (
         text-align: center;
         color: #212529;
       }
+      .article .card-header {
+        padding: 1.5rem 16px;
+        text-align: left;
+      }
+      .article .card-title {
+        padding: 0;
+        margin: 0;
+        border: none;
+        flex: 1;
+        font-size: 18px;
+        line-height: 1.3em;
+        font-weight: 500;
+        color: #212529;
+        text-align: left;
+        height: 3.9em;
+      }
+      .readmore {
+        color: #577941;
+        text-decoration: underline;
+        margin-top: 5px;
+      }
       @media (max-width: 991.98px) {
-        .card-header {
+        .category .card-header {
           padding: 1.3rem 12px;
         }
-        .card-title {
+        .category .card-title {
           font-size: 14px;
           line-height: 1.1em;
+        }
+        .article .card-header {
+          padding: 1.3rem 12px;
+        }
+        .article .card-title {
+          font-size: 16px;
+          line-height: 1.1em;
+          height: 3.3em;
+        }
+        .card-img-wrap {
+          height: 180px;
         }
       }
     `}</style>

@@ -79,16 +79,16 @@ export default function Home() {
             <Container fluid>
               <Row gutterWidth={15} style={{marginLeft: -20, marginRight: -20}}>
                 <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
-                  <Card image="/images/category-1.jpg" title="GIỎ BÀNG ĐI CHỢ" />
+                  <Card type="category" image="/images/category-1.jpg" title="GIỎ BÀNG ĐI CHỢ" />
                 </Col>
                 <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
-                  <Card image="/images/category-2.jpg" title="PHỤ KIỆN THỜI TRANG" />
+                  <Card type="category" image="/images/category-2.jpg" title="PHỤ KIỆN THỜI TRANG" />
                 </Col>
                 <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
-                  <Card image="/images/category-3.jpg" title="TÚI XÁCH HOẠ TIẾT" />
+                  <Card type="category" image="/images/category-3.jpg" title="TÚI XÁCH HOẠ TIẾT" />
                 </Col>
                 <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
-                  <Card image="/images/category-4.jpg" title="SẢN PHẨM SÁNG TẠO" />
+                  <Card type="category" image="/images/category-4.jpg" title="SẢN PHẨM SÁNG TẠO" />
                 </Col>
               </Row>
             </Container>
@@ -146,7 +146,23 @@ export default function Home() {
                 <h2>Xây dựng một phong cách sống mới</h2>
                 <Divider color="#fff" />
                 <p>Velit sunt reprehenderit occaecat dolor tempor ex id. Officia ullamco deserunt labore deserunt. In deserunt nisi laboris incididunt non esse veniam sunt. Dolor esse dolor aliqua eu nostrud.</p>
-                <Button label="Tất cả Bài viết" />
+                <Container fluid>
+                  <Row gutterWidth={15} style={{marginLeft: -20, marginRight: -20}}>
+                    <Col lg={3} sm={6} xs={12} style={{marginBottom: 15}}>
+                      <Card type="article" image="/images/article-1.jpg" title="Proident cupidatat dolor et officia voluptate" tag="Cupidatat" />
+                    </Col>
+                    <Col lg={3} sm={6} xs={12} style={{marginBottom: 15}}>
+                      <Card type="article" image="/images/article-2.jpg" title="Est et ut deserunt commodo reprehenderit" tag="Commodo" />
+                    </Col>
+                    <Col lg={3} sm={6} xs={12} style={{marginBottom: 15}}>
+                      <Card type="article" image="/images/article-3.jpg" title="Minim cillum laboris deserunt esse amet sit duis" tag="Laboris" />
+                    </Col>
+                    <Col lg={3} sm={6} xs={12} style={{marginBottom: 15}}>
+                      <Card type="article" image="/images/article-4.jpg" title="Incididunt velit est duis ea sint deserunt quis officia occaecat" tag="Est Duis" />
+                    </Col>
+                  </Row>
+                </Container>
+                <Button label="Tất cả Bài viết" style={{marginTop: 15}} />
               </div>
             </div>
           </div>

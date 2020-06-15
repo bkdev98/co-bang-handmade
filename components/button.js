@@ -1,6 +1,6 @@
-const Button = ({label}) => (
+const Button = ({label, ...props}) => (
   <>
-    <a className="btn">
+    <a className="btn" {...props}>
       {label}
     </a>
     <style jsx>{`
