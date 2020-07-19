@@ -1,10 +1,22 @@
 import { useState } from 'react'
 import { User, ShoppingBag, Menu } from 'react-feather'
 import { Visible } from 'react-grid-system'
+import { useQuery } from '@apollo/client'
 
+import { MENUS_QUERY, menuQueryVars } from '../graphql/queries'
 import Sidebar from '../components/sidebar'
 
 const Header = () => {
+  const { data } = useQuery(
+    MENUS_QUERY,
+    {
+      variables: menuQueryVars,
+      notifyOnNetworkStatusChange: true,
+    }
+  )
+
+  const navbar = data.menus.edges.find(({node}) => node.name === 'navbar')
+
   const [cartOpen, setCartOpen] = useState(false);
 
   return (
@@ -20,26 +32,13 @@ const Header = () => {
             <div className="navbar-collapse">
               <Visible md lg xl xxl>
                 <ul className="navbar-nav">
-                  <li>
-                    <a className="nav-link">
-                      SẢN PHẨM
-                    </a>
-                  </li>
-                  <li>
-                    <a className="nav-link">
-                      GIỚI THIỆU
-                    </a>
-                  </li>
-                  <li>
-                    <a className="nav-link">
-                      BLOG
-                    </a>
-                  </li>
-                  <li>
-                    <a className="nav-link">
-                      LIÊN HỆ
-                    </a>
-                  </li>
+                  {navbar.node.items.map(item => (
+                    <li key={item.id}>
+                      <a className="nav-link">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </Visible>
             </div>

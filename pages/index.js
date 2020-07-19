@@ -1,10 +1,45 @@
 import { Check } from 'react-feather'
 import { Container, Row, Col } from 'react-grid-system'
+import { useQuery } from '@apollo/client'
+
+import { initializeApollo } from '../lib/apolloClient'
+import { MENUS_QUERY, menuQueryVars, CATEGORIES_QUERY, categoryQueryVars } from '../graphql/queries'
 
 import Layout from '../layouts/main'
 import Divider from '../components/divider'
 import Card from '../components/card'
 import Button from '../components/button'
+
+function FeaturedCategories() {
+  const { data } = useQuery(
+    CATEGORIES_QUERY,
+    {
+      variables: categoryQueryVars,
+      notifyOnNetworkStatusChange: true,
+    }
+  )
+
+  return (
+    <>
+      <Container fluid>
+        <Row gutterWidth={15} style={{marginLeft: -20, marginRight: -20}}>
+          {data.categories.edges.map(({node}) => (
+            <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}} key={node.id}>
+              <Card type="category" image={node.backgroundImage.url} title={node.name.toUpperCase()} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+      <div className="category-action"><Button label="Tất cả Danh mục" /></div>
+      <style jsx>{`
+        .category-action {
+          padding-top: 2rem;
+          text-align: center;
+        }
+      `}</style>
+    </>
+  )
+}
 
 export default function Home() {
   return (
@@ -76,23 +111,7 @@ export default function Home() {
                 <p>Et esse magna elit consectetur incididunt adipisicing. Nisi occaecat amet pariatur labore in culpa deserunt culpa in in aliqua esse id. Velit Lorem Lorem fugiat magna labore dolore cupidatat cupidatat ipsum. In quis et eiusmod enim fugiat ea.</p>
               </div>
             </div>
-            <Container fluid>
-              <Row gutterWidth={15} style={{marginLeft: -20, marginRight: -20}}>
-                <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
-                  <Card type="category" image="/images/category-1.jpg" title="GIỎ BÀNG ĐI CHỢ" />
-                </Col>
-                <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
-                  <Card type="category" image="/images/category-2.jpg" title="PHỤ KIỆN THỜI TRANG" />
-                </Col>
-                <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
-                  <Card type="category" image="/images/category-3.jpg" title="TÚI XÁCH HOẠ TIẾT" />
-                </Col>
-                <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}}>
-                  <Card type="category" image="/images/category-4.jpg" title="SẢN PHẨM SÁNG TẠO" />
-                </Col>
-              </Row>
-            </Container>
-            <div className="category-action"><Button label="Tất cả Danh mục" /></div>
+            <FeaturedCategories />
           </div>
           <div className="container">
             <div className="home-menu-products">
@@ -551,4 +570,25 @@ export default function Home() {
       `}</style>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const apolloClient = initializeApollo()
+
+  await apolloClient.query({
+    query: MENUS_QUERY,
+    variables: menuQueryVars,
+  })
+
+  await apolloClient.query({
+    query: CATEGORIES_QUERY,
+    variables: categoryQueryVars,
+  })
+
+  return {
+    props: {
+      initialApolloState: apolloClient.cache.extract(),
+    },
+    unstable_revalidate: 1,
+  }
 }
