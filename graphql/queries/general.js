@@ -43,3 +43,39 @@ export const CATEGORIES_QUERY = gql`
 export const categoryQueryVars = {
   first: 4,
 }
+
+export const HOME_QUERY = gql`
+  query homeQuery($firstMenus: Int!, $firstCategories: Int!) {
+    menus (first: $firstMenus) {
+      edges {
+        node {
+          id
+          name
+          items {
+            id
+            name
+            page {
+              slug
+            }
+          }
+        }
+      }
+    }
+    categories (first: $firstCategories) {
+      edges {
+        node {
+          id
+          name
+          backgroundImage {
+            url
+          }
+        }
+      }
+    }
+  }
+`
+
+export const homeQueryVars = {
+  firstMenus: 10,
+  firstCategories: 4,
+}

@@ -3,9 +3,8 @@ import { Container, Row, Col } from 'react-grid-system'
 import { useQuery } from '@apollo/client'
 
 import { initializeApollo } from '../lib/apolloClient'
-import { MENUS_QUERY, menuQueryVars, CATEGORIES_QUERY, categoryQueryVars } from '../graphql/queries'
+import { CATEGORIES_QUERY, categoryQueryVars } from '../graphql/queries'
 
-import Layout from '../layouts/main'
 import Divider from '../components/divider'
 import Card from '../components/card'
 import Button from '../components/button'
@@ -43,7 +42,7 @@ function FeaturedCategories() {
 
 export default function Home() {
   return (
-    <Layout>
+    <div>
       <section className="section-home-hero">
         <div className="home-hero-img" />
       </section>
@@ -568,17 +567,12 @@ export default function Home() {
           }
         }
       `}</style>
-    </Layout>
+    </div>
   )
 }
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
-
-  await apolloClient.query({
-    query: MENUS_QUERY,
-    variables: menuQueryVars,
-  })
 
   await apolloClient.query({
     query: CATEGORIES_QUERY,

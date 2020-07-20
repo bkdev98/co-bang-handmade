@@ -107,6 +107,7 @@ const Footer = () => (
         color: #fff;
         opacity: 0.8;
         font-size: 14px;
+        padding: 20px 0 30px;
       }
       .footer-list-title {
         text-transform: uppercase;

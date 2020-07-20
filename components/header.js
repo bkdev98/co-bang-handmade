@@ -1,21 +1,12 @@
 import { useState } from 'react'
 import { User, ShoppingBag, Menu } from 'react-feather'
 import { Visible } from 'react-grid-system'
-import { useQuery } from '@apollo/client'
+import Link from 'next/link'
 
-import { MENUS_QUERY, menuQueryVars } from '../graphql/queries'
 import Sidebar from '../components/sidebar'
 
-const Header = () => {
-  const { data } = useQuery(
-    MENUS_QUERY,
-    {
-      variables: menuQueryVars,
-      notifyOnNetworkStatusChange: true,
-    }
-  )
-
-  const navbar = data.menus.edges.find(({node}) => node.name === 'navbar')
+const Header = ({menus}) => {
+  const navbar = menus.edges.find(({node}) => node.name === 'navbar')
 
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -25,18 +16,22 @@ const Header = () => {
         <div className="container">
           <nav role="navigation" className="navbar">
             <h1 className="navbar-brand">
-              <div className="navbar-brand-text">
-              CỎ BÀNG<br /><strong>HANDMADE</strong>
-              </div>
+              <Link href="/">
+                <div className="navbar-brand-text">
+                  CỎ BÀNG<br /><strong>HANDMADE</strong>
+                </div>
+              </Link>
             </h1>
             <div className="navbar-collapse">
               <Visible md lg xl xxl>
                 <ul className="navbar-nav">
                   {navbar.node.items.map(item => (
                     <li key={item.id}>
-                      <a className="nav-link">
-                        {item.name}
-                      </a>
+                      <Link href={item.page.slug}>
+                        <a className="nav-link">
+                          {item.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -91,6 +86,7 @@ const Header = () => {
           line-height: 1em;
           letter-spacing: .1em;
           font-weight: 400;
+          cursor: pointer;
         }
         .navbar-collapse {
           display: flex;

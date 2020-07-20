@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-const MainLayout = ({children}) => (
+const MainLayout = ({data, children}) => (
   <div>
     <Head>
       <title>Cỏ Bàng Handmade</title>
@@ -11,7 +11,7 @@ const MainLayout = ({children}) => (
     </Head>
 
     <main>
-      <Header />
+      <Header menus={data.menus} />
       {children}
     </main>
 
@@ -34,6 +34,7 @@ const MainLayout = ({children}) => (
 
       * {
         box-sizing: border-box;
+        margin: 0;
       }
 
       .container {
