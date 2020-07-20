@@ -1,5 +1,6 @@
 import App from 'next/app'
 import { ApolloProvider } from '@apollo/client'
+import NextNprogress from 'nextjs-progressbar'
 
 import { useApollo, initializeApollo } from '../lib/apolloClient'
 
@@ -11,9 +12,12 @@ export default function MyApp({ Component, pageProps, layoutData }) {
 
   return (
     <ApolloProvider client={apolloClient}>
-      <Layout data={layoutData}>
-        <Component {...pageProps} />
-      </Layout>
+      <>
+        <NextNprogress color="#577941" options={{ showSpinner: false }} />
+        <Layout data={layoutData}>
+          <Component {...pageProps} />
+        </Layout>
+      </>
     </ApolloProvider>
   )
 }

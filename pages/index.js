@@ -1,6 +1,7 @@
 import { Check } from 'react-feather'
 import { Container, Row, Col } from 'react-grid-system'
 import { useQuery } from '@apollo/client'
+import Head from 'next/head'
 
 import { initializeApollo } from '../lib/apolloClient'
 import { CATEGORIES_QUERY, categoryQueryVars } from '../graphql/queries'
@@ -43,6 +44,9 @@ function FeaturedCategories() {
 export default function Home() {
   return (
     <div>
+      <Head>
+        <title>Trang chủ | Cỏ Bàng Handmade</title>
+      </Head>
       <section className="section-home-hero">
         <div className="home-hero-img" />
       </section>
