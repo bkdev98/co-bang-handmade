@@ -156,7 +156,6 @@ const Card = ({image, images, title, type = 'category', tag, pricing}) => (
         margin-top: 5px;
       }
       .product .card-footer {
-        margin-top: 10px;
         overflow: hidden;
       }
       .add-to-cart {

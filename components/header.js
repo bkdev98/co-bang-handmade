@@ -27,7 +27,7 @@ const Header = ({menus}) => {
                 <ul className="navbar-nav">
                   {navbar.node.items.map(item => (
                     <li key={item.id}>
-                      <Link href={item.page.slug}>
+                      <Link href={`/${item.page.slug}`}>
                         <a className="nav-link">
                           {item.name}
                         </a>
