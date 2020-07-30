@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { User, ShoppingBag, Menu } from 'react-feather'
+import { Search, ShoppingBag, Menu } from 'react-feather'
 import { Visible } from 'react-grid-system'
 import Link from 'next/link'
 
@@ -40,7 +40,7 @@ const Header = ({menus}) => {
             <ul className="navbar-icons">
               <li>
                 <a className="nav-link">
-                  <User size={20} />
+                  <Search size={20} />
                 </a>
               </li>
               <li>
@@ -66,9 +66,10 @@ const Header = ({menus}) => {
         header {
           position: fixed;
           width: 100%;
-          background-color: #fff;
           z-index: 1030;
           box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+          background: hsla(0,0%,100%,.6);
+          backdrop-filter: blur(3px);
         }
         .navbar {
           display: flex;

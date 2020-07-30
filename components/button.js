@@ -1,6 +1,6 @@
-const Button = ({label, type = 'primary', append, ...props}) => (
+const Button = ({label, type = 'primary', append, noBorder, ...props}) => (
   <>
-    <a className={`btn ${type} ${append && 'append'}`} {...props}>
+    <a className={`btn ${type} ${append && 'append'} ${noBorder && 'no-border'}`} {...props}>
       {label}
     </a>
     <style jsx>{`
@@ -41,6 +41,16 @@ const Button = ({label, type = 'primary', append, ...props}) => (
         border-color: #d6d6d6;
         color: #212529;
       }
+      .dark {
+        background-color: #212529;
+        border-color: #212529;
+        color: #ffffff;
+      }
+      .dark:hover {
+        background-color: #354f24;
+        border-color: #354f24;
+        color: #ffffff;
+      }
       .append {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
@@ -48,6 +58,22 @@ const Button = ({label, type = 'primary', append, ...props}) => (
         font-weight: 600;
         letter-spacing: .05em;
         text-transform: none;
+      }
+      .card-footer {
+        border-radius: 0;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #577941;
+        border-color: #577941;
+        flex: 1;
+      }
+      .card-footer:hover {
+        color: #fff;
+        background-color: #354f24;
+        border-color: #354f24;
       }
       @media (max-width: 991.98px) {
         .btn {

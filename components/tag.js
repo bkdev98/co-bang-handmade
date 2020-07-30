@@ -1,6 +1,6 @@
-const Tag = ({label, ...props}) => (
+const Tag = ({label, large, active, margin, ...props}) => (
   <>
-    <a className="tag" {...props}>
+    <a className={`tag ${large && 'tag-large'} ${active && 'tag-active'} ${margin && 'tag-margin'}`} {...props}>
       {label}
     </a>
     <style jsx>{`
@@ -27,6 +27,19 @@ const Tag = ({label, ...props}) => (
       .tag:hover {
         background-color: #354f24;
         border-color: #354f24;
+      }
+      .tag-large {
+        padding: 4px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .tag-active {
+        background-color: #212529;
+        border-color: #212529;
+      }
+      .tag-margin {
+        margin: 5px;
       }
     `}</style>
   </>

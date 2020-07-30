@@ -31,6 +31,9 @@ export const CATEGORIES_QUERY = gql`
         node {
           id
           name
+          translation(languageCode: VI) {
+            name
+          }
           backgroundImage {
             url
           }
@@ -66,6 +69,9 @@ export const HOME_QUERY = gql`
         node {
           id
           name
+          translation(languageCode: VI) {
+            name
+          }
           backgroundImage {
             url
           }

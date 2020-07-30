@@ -23,11 +23,14 @@ function FeaturedCategories() {
     <>
       <Container fluid>
         <Row gutterWidth={15} style={{marginLeft: -20, marginRight: -20}}>
-          {data.categories.edges.map(({node}) => (
-            <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}} key={node.id}>
-              <Card type="category" image={node.backgroundImage.url} title={node.name.toUpperCase()} />
-            </Col>
-          ))}
+          {data.categories.edges.map(({node}) => {
+            const name = node.translation?.name || node.name;
+            return (
+              <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}} key={node.id}>
+                <Card type="category" image={node.backgroundImage.url} title={name.toUpperCase()} />
+              </Col>
+            )
+          })}
         </Row>
       </Container>
       <div className="category-action"><Button label="Tất cả Danh mục" /></div>
@@ -49,53 +52,53 @@ export default function Home() {
       </Head>
       <section className="section-home-hero">
         <div className="home-hero-img" />
-      </section>
-      <section className="section-home-features">
-        <div className="container">
-          <Container fluid>
-            <Row>
-              <Col lg={3} xs={6}>
-                <div className="home-features-item">
-                  <div className="home-features-item-icon">
-                    <Check size={16} />
+        <div className="home-hero-features">
+          <div className="container">
+            <Container fluid>
+              <Row>
+                <Col lg={3} xs={6}>
+                  <div className="home-features-item">
+                    <div className="home-features-item-icon">
+                      <Check size={16} />
+                    </div>
+                    <div className="home-features-item-label">
+                      Chất liệu thiên nhiên
+                    </div>
                   </div>
-                  <div className="home-features-item-label">
-                    Chất liệu thiên nhiên
+                </Col>
+                <Col lg={3} xs={6}>
+                  <div className="home-features-item">
+                    <div className="home-features-item-icon">
+                      <Check size={16} />
+                    </div>
+                    <div className="home-features-item-label">
+                      Thân thiện môi trường
+                    </div>
                   </div>
-                </div>
-              </Col>
-              <Col lg={3} xs={6}>
-                <div className="home-features-item">
-                  <div className="home-features-item-icon">
-                    <Check size={16} />
+                </Col>
+                <Col lg={3} xs={6}>
+                  <div className="home-features-item">
+                    <div className="home-features-item-icon">
+                      <Check size={16} />
+                    </div>
+                    <div className="home-features-item-label">
+                      Sản xuất thủ công
+                    </div>
                   </div>
-                  <div className="home-features-item-label">
-                    Thân thiện môi trường
+                </Col>
+                <Col lg={3} xs={6}>
+                  <div className="home-features-item">
+                    <div className="home-features-item-icon">
+                      <Check size={16} />
+                    </div>
+                    <div className="home-features-item-label">
+                      Giao hàng tận nơi
+                    </div>
                   </div>
-                </div>
-              </Col>
-              <Col lg={3} xs={6}>
-                <div className="home-features-item">
-                  <div className="home-features-item-icon">
-                    <Check size={16} />
-                  </div>
-                  <div className="home-features-item-label">
-                    Sản xuất thủ công
-                  </div>
-                </div>
-              </Col>
-              <Col lg={3} xs={6}>
-                <div className="home-features-item">
-                  <div className="home-features-item-icon">
-                    <Check size={16} />
-                  </div>
-                  <div className="home-features-item-label">
-                    Giao hàng tận nơi
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Container>
+                </Col>
+              </Row>
+            </Container>
+          </div>
         </div>
       </section>
       <section className="section-home-menu">
@@ -217,18 +220,18 @@ export default function Home() {
         .section-home-hero {
           position: relative;
           background-color: #202024;
+          height: 100vh;
         }
         .home-hero-img {
           background-image: url(/images/hero-img.jpg);
           background-position: 50%;
           background-repeat: no-repeat;
           background-size: cover;
-          position: absolute;
           width: 100%;
           height: 100vh;
           display: block;
         }
-        .section-home-features {
+        .home-hero-features {
           position: absolute;
           bottom: 0;
           z-index: 2;
@@ -238,7 +241,7 @@ export default function Home() {
           background-color: #202024;
           color: #212529;
         }
-        .section-home-features .container {
+        .home-hero-features .container {
           padding-left: 30px;
           padding-right: 30px;
           margin-right: auto;
@@ -284,7 +287,6 @@ export default function Home() {
         .section-home-menu {
           background: #fff;
           position: relative;
-          top: 100vh;
           padding-top: 6rem;
           padding-bottom: 6rem;
         }
@@ -358,7 +360,6 @@ export default function Home() {
         .section-home-about {
           background-color: #202024;
           position: relative;
-          top: 100vh;
         }
         .home-about-bg {
           background-image: url(/images/passion.jpg);
@@ -399,7 +400,6 @@ export default function Home() {
         }
         .section-home-testimonials {
           position: relative;
-          top: 100vh;
         }
         .home-testimonials-bg {
           background-image: url(/images/branch-2.jpg);
@@ -435,8 +435,6 @@ export default function Home() {
         }
         .section-home-news {
           background-color: #50596c;
-          position: relative;
-          top: 100vh;
         }
         .home-news-bg {
           background-repeat: repeat;
@@ -467,8 +465,6 @@ export default function Home() {
           font-weight: 300;
         }
         .section-home-gift {
-          position: relative;
-          top: 100vh;
         }
         .home-gift-bg {
           background-color: #354f24;

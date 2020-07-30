@@ -15,9 +15,7 @@ const MainLayout = ({data, children}) => (
       {children}
     </main>
 
-    <footer>
-      <Footer />
-    </footer>
+    <Footer />
 
     <style jsx global>{`
       html,
@@ -49,10 +47,9 @@ const MainLayout = ({data, children}) => (
         font-weight: 300;
       }
 
-      footer {
-        background: #202024;
+      main {
         position: relative;
-        top: 100vh;
+        min-height: 80vh;
       }
 
       @media (max-width: 991.98px) {
@@ -64,6 +61,19 @@ const MainLayout = ({data, children}) => (
           font-size: 16px;
           line-height: 1.3em;
         }
+      }
+      input {
+        font-family: 'Barlow', sans-serif;
+        position: relative;
+        margin-bottom: 0;
+        padding: .6rem .8rem;
+        font-size: 14px;
+        background-color: hsla(0,0%,100%,.05);
+        border: 1px solid #CED4DA;
+        outline: none;
+        display: block;
+        line-height: 1.5;
+        background-clip: padding-box;
       }
     `}</style>
   </div>

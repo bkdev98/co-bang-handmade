@@ -5,91 +5,97 @@ import Button from './button'
 
 const Footer = () => (
   <>
-    <div className="container">
-      <Container fluid>
-        <div className="section-info">
-          <Row>
-            <Col lg={3} style={{padding: '2rem 15px'}}>
-              <div className="footer-brand-text">
-                CỎ BÀNG<br /><strong>HANDMADE</strong>
-              </div>
-              <div className="footer-text">
-                Số 158/45 Phạm Văn Chiêu, phường 5, quận Gò Vấp, TP. Hồ Chí Minh
-              </div>
-              <div className="footer-social-list">
-                <a className="footer-social-item">
-                  <Facebook size={18} />
-                </a>
-                <a className="footer-social-item">
-                  <Instagram size={18} />
-                </a>
-              </div>
-            </Col>
-            <Col lg={3} style={{padding: '2rem 15px'}}>
-              <div className="footer-list-title">DANH MỤC SẢN PHẨM</div>
-              <ul className="footer-list">
-                <li className="footer-list-item">
-                  <a className="footer-list-item-link">
-                    Giỏ bàng đi chợ
-                  </a>
-                </li>
-                <li className="footer-list-item">
-                  <a className="footer-list-item-link">
-                    Phụ kiện thời trang
-                  </a>
-                </li>
-                <li className="footer-list-item">
-                  <a className="footer-list-item-link">
-                    Túi xách hoạ tiết
-                  </a>
-                </li>
-                <li className="footer-list-item">
-                  <a className="footer-list-item-link">
-                    Sản phẩm sáng tạo
-                  </a>
-                </li>
-              </ul>
-            </Col>
-            <Col lg={3} style={{padding: '2rem 15px'}}>
-              <div className="footer-list-title">THÔNG TIN</div>
-              <ul className="footer-list">
-                <li className="footer-list-item">
-                  <a className="footer-list-item-link">
-                    Chính sách bảo mật
-                  </a>
-                </li>
-                <li className="footer-list-item">
-                  <a className="footer-list-item-link">
-                    Chính sách giao hàng
-                  </a>
-                </li>
-                <li className="footer-list-item">
-                  <a className="footer-list-item-link">
-                    Đổi trả hàng
-                  </a>
-                </li>
-              </ul>
-            </Col>
-            <Col lg={3} style={{padding: '2rem 15px'}}>
-              <div className="footer-subscription-title">ĐĂNG KÝ NHẬN BẢN TIN</div>
-              <div className="footer-subscription-text">
-                Nhận thông tin sản phẩm và ưu đãi đặc biệt từ Cỏ Bàng Handmade
-              </div>
-              <div className="footer-input-group">
-                <input type="email" name="email" id="email" placeholder="Email của bạn" className="form-input" />
-                <div className="footer-input-group-append">
-                  <Button label="Đăng ký" append />
+    <footer>
+      <div className="container">
+        <Container fluid>
+          <div className="section-info">
+            <Row>
+              <Col lg={3} style={{padding: '2rem 15px'}}>
+                <div className="footer-brand-text">
+                  CỎ BÀNG<br /><strong>HANDMADE</strong>
                 </div>
-              </div>
-            </Col>
-          </Row>
-        </div>
-        <div className="section-copyright">
-          <p> © 2020 Cỏ Bàng Handmade. All rights reserved. Terms & Conditions.</p>
-        </div>
-      </Container>
-    </div>
+                <div className="footer-text">
+                  Số 158/45 Phạm Văn Chiêu, phường 5, quận Gò Vấp, TP. Hồ Chí Minh
+                </div>
+                <div className="footer-social-list">
+                  <a className="footer-social-item">
+                    <Facebook size={18} />
+                  </a>
+                  <a className="footer-social-item">
+                    <Instagram size={18} />
+                  </a>
+                </div>
+              </Col>
+              <Col lg={3} style={{padding: '2rem 15px'}}>
+                <div className="footer-list-title">DANH MỤC SẢN PHẨM</div>
+                <ul className="footer-list">
+                  <li className="footer-list-item">
+                    <a className="footer-list-item-link">
+                      Giỏ bàng đi chợ
+                    </a>
+                  </li>
+                  <li className="footer-list-item">
+                    <a className="footer-list-item-link">
+                      Phụ kiện thời trang
+                    </a>
+                  </li>
+                  <li className="footer-list-item">
+                    <a className="footer-list-item-link">
+                      Túi xách hoạ tiết
+                    </a>
+                  </li>
+                  <li className="footer-list-item">
+                    <a className="footer-list-item-link">
+                      Sản phẩm sáng tạo
+                    </a>
+                  </li>
+                </ul>
+              </Col>
+              <Col lg={3} style={{padding: '2rem 15px'}}>
+                <div className="footer-list-title">THÔNG TIN</div>
+                <ul className="footer-list">
+                  <li className="footer-list-item">
+                    <a className="footer-list-item-link">
+                      Chính sách bảo mật
+                    </a>
+                  </li>
+                  <li className="footer-list-item">
+                    <a className="footer-list-item-link">
+                      Chính sách giao hàng
+                    </a>
+                  </li>
+                  <li className="footer-list-item">
+                    <a className="footer-list-item-link">
+                      Đổi trả hàng
+                    </a>
+                  </li>
+                </ul>
+              </Col>
+              <Col lg={3} style={{padding: '2rem 15px'}}>
+                <div className="footer-subscription-title">ĐĂNG KÝ NHẬN BẢN TIN</div>
+                <div className="footer-subscription-text">
+                  Nhận thông tin sản phẩm và ưu đãi đặc biệt từ Cỏ Bàng Handmade
+                </div>
+                <div className="footer-input-group">
+                  <input type="email" name="email" id="email" placeholder="Email của bạn" className="form-input" />
+                  <div className="footer-input-group-append">
+                    <Button label="Đăng ký" append />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </div>
+          <div className="section-copyright">
+            <p> © 2020 Cỏ Bàng Handmade. All rights reserved. Terms & Conditions.</p>
+          </div>
+        </Container>
+      </div>
+    </footer>
     <style jsx>{`
+      footer {
+        background: #202024;
+        position: relative;
+      }
       .footer-brand-text {
         font-size: 18px;
         line-height: 1em;
