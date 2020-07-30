@@ -7,8 +7,8 @@ import { initializeApollo } from '../../lib/apolloClient'
 import { PRODUCTS_QUERY, productsQueryVars } from '../../graphql/queries'
 
 import Tag from '../../components/tag'
-import Button from '../../components/Button'
-import Card from '../../components/Card'
+import Button from '../../components/button'
+import Card from '../../components/card'
 
 export default function Product({}) {
   const { data } = useQuery(
