@@ -75,6 +75,23 @@ const Button = ({label, type = 'primary', append, noBorder, ...props}) => (
         background-color: #354f24;
         border-color: #354f24;
       }
+      .add-to-cart {
+        border-radius: 0;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        color: #fff;
+        padding: 1rem 1.5rem;
+        background-color: #577941;
+        border-color: #577941;
+        flex: 1;
+      }
+      .add-to-cart:hover {
+        color: #fff;
+        background-color: #354f24;
+        border-color: #354f24;
+      }
       @media (max-width: 991.98px) {
         .btn {
           padding: .65rem 1.3rem;

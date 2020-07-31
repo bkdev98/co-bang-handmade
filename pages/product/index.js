@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { useQuery } from '@apollo/client'
 import { Container, Row, Col } from 'react-grid-system'
-import Link from 'next/link'
 
 import { initializeApollo } from '../../lib/apolloClient'
 import { PRODUCTS_QUERY, productsQueryVars } from '../../graphql/queries'
@@ -53,11 +52,7 @@ export default function Product({}) {
                 const name = node.translation?.name || node.name;
                 return (
                   <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}} key={node.id}>
-                    <Link href="/product/[slug]" as={`product/${node.slug}`}>
-                      <a className="product-card-link">
-                        <Card type="product" images={node.images} title={name.toUpperCase()} pricing={node.pricing} />
-                      </a>
-                    </Link>
+                    <Card type="product" images={node.images} title={name.toUpperCase()} pricing={node.minimalVariantPrice} slug={node.slug} />
                   </Col>
                 )
               })}
@@ -132,10 +127,6 @@ export default function Product({}) {
           position: relative;
           padding-top: 6rem;
           padding-bottom: 6rem;
-        }
-        .product-card-link {
-          text-decoration: none;
-          color: inherit;
         }
       `}</style>
     </div>

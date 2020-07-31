@@ -32,23 +32,11 @@ export const PRODUCTS_QUERY = gql`
             id
             url
           }
-          pricing {
-            onSale
-            discount {
-              net {
-                amount
-                currency
-              }
-            }
-            priceRange {
-              start {
-                net {
-                  amount
-                  currency
-                }
-              }
-            }
+          minimalVariantPrice {
+            amount
+            currency
           }
+          isAvailable
         }
       }
     }
@@ -69,38 +57,41 @@ export const PRODUCT_DETAIL_QUERY = gql`
       seoTitle
       seoDescription
       slug
+      attributes {
+        attribute {
+          slug
+        }
+        values {
+          id
+          name
+          slug
+          translation(languageCode: VI) {
+              name
+            }
+        }
+      }
       variants {
         id
         name
-        images {
-          id
-          url
-        }
         pricing {
           price {
             net {
+              currency
               amount
             }
           }
         }
-        sku
-        translation(languageCode: VI) {
-          name
-        }
-      }
-      pricing {
-        onSale
-        discount {
-          net {
-            amount
-            currency
+        attributes {
+          attribute {
+            name
+            slug
           }
-        }
-        priceRange {
-          start {
-            net {
-              amount
-              currency
+          values {
+            id
+            name
+            slug
+            translation(languageCode: VI) {
+              name
             }
           }
         }

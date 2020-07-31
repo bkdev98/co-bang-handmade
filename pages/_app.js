@@ -1,7 +1,9 @@
 import App from 'next/app'
 import { ApolloProvider } from '@apollo/client'
 import NextNprogress from 'nextjs-progressbar'
+import 'pure-react-carousel/dist/react-carousel.es.css'
 
+import '../assets/css/custom.css'
 import { useApollo, initializeApollo } from '../lib/apolloClient'
 
 import { MENUS_QUERY, menuQueryVars } from '../graphql/queries'

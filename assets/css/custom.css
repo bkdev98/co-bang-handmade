@@ -1,0 +1,52 @@
+.carousel {
+  position: relative;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.carousel-btn svg {
+  color: #577941;
+  transition: all .3s ease;
+}
+
+.carousel-btn:hover svg {
+  color: #354f24;
+}
+
+.back-btn {
+  left: -60px;
+}
+
+.next-btn {
+  right: -60px;
+}
+
+.carousel__dot-group {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+}
+
+.carousel__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  outline: none;
+  /* border: 1px solid #4b4e6d; */
+  border: none;
+  margin: 0 5px;
+}
+
+.carousel__dot--selected {
+  border: none;
+  background-color: #577941;
+}
