@@ -1,7 +1,7 @@
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image, DotGroup } from 'pure-react-carousel'
 import { ChevronLeft, ChevronRight } from 'react-feather'
 
-const Carousel = ({images}) => {
+const Carousel = ({images = []}) => {
   return (
     <>
       <CarouselProvider
