@@ -1,4 +1,4 @@
-# CoBangHandmade Storefront
+# CBH Storefront
 
 ![screenshot](https://github.com/bkdev98/co-bang-handmade/blob/master/assets/images/screenshot.png)
 
@@ -17,6 +17,10 @@ Pretty SSR e-commerce website using [Next.js](http://nextjs.org) & [Apollo Clien
 - [x] Data caching
 
 - [ ] Braintree Payment Gateway integration
+
+## Demo
+
+See the [public demo](https://co-bang-handmade.vercel.app/) of CBH Storefront!
 
 ## Getting Started
 
