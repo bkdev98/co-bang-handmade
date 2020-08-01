@@ -8,15 +8,15 @@ Pretty SSR e-commerce website using [Next.js](http://nextjs.org) & [Apollo Clien
 
 ## Features
 
-[x] Green 🌱
+- [x] Green 🌱
 
-[x] Saleor GraphQL API integration
+- [x] Saleor GraphQL API integration
 
-[x] Server Side Rendering
+- [x] Server Side Rendering
 
-[x] Data caching
+- [x] Data caching
 
-[ ] Braintree Payment Gateway integration
+- [ ] Braintree Payment Gateway integration
 
 ## Getting Started
 
