@@ -7,7 +7,7 @@ const Card = ({image, images, title, type = 'category', tag, pricing, slug}) => 
   let href = '', as = '';
   if (type === 'product') {
     href = "/product/[slug]";
-    as = `product/${slug}`;
+    as = `/product/${slug}`;
   }
 
   return (

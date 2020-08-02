@@ -6,16 +6,17 @@ import { Container, Row, Col } from 'react-grid-system'
 import {Check} from 'react-feather'
 
 import { initializeApollo } from '../../lib/apolloClient'
-import { PRODUCT_DETAIL_QUERY, PRODUCTS_QUERY, productsQueryVars } from '../../graphql/queries'
+import { PRODUCT_DETAIL_QUERY, PRODUCTS_QUERY, RELATED_PRODUCTS_QUERY, productsQueryVars } from '../../graphql/queries'
 
 import Carousel from '../../components/carousel'
 import Button from '../../components/button'
+import Card from '../../components/card'
 import HighlightIcon from '../../components/highlight-icon'
 
 export default function ProductDetail({}) {
   const router = useRouter()
   const { slug } = router.query
-  const { data } = useQuery(
+  const { data: {product} } = useQuery(
     PRODUCT_DETAIL_QUERY,
     {
       variables: {slug},
@@ -23,15 +24,21 @@ export default function ProductDetail({}) {
     }
   )
 
-  const [selectedVariant, setSelectedVariant] = useState(data?.product?.variants?.[0]);
+  const { data: relatedData, loading: relatedLoading, error: relatedError } = useQuery(
+    RELATED_PRODUCTS_QUERY,
+    {
+      variables: {category: product?.category?.id},
+      notifyOnNetworkStatusChange: true,
+    }
+  )
 
-  console.log(selectedVariant)
+  const [selectedVariant, setSelectedVariant] = useState(product?.variants?.[0]);
 
-  const name = data?.product?.translation?.name || data?.product?.name;
+  const name = product?.translation?.name || product?.name;
 
-  const highlights = data?.product?.attributes?.find(attr => attr.attribute.slug === 'highlight')?.values;
+  const highlights = product?.attributes?.find(attr => attr.attribute.slug === 'highlight')?.values;
   
-  const promises = data?.product?.attributes?.find(attr => attr.attribute.slug === 'promise')?.values;
+  const promises = product?.attributes?.find(attr => attr.attribute.slug === 'promise')?.values;
 
   return (
     <>
@@ -44,7 +51,7 @@ export default function ProductDetail({}) {
             <Row gutterWidth={15}>
               <Col lg={7} sm={12} xs={12}>
                 <div className="image-carousel">
-                  <Carousel images={data?.product?.images} />
+                  <Carousel images={product?.images} />
                 </div>
               </Col>
               <Col lg={5} sm={12} xs={12}>
@@ -55,10 +62,10 @@ export default function ProductDetail({}) {
                   </div>
                   <div className="product-variant">
                     <span className="product-attribute-title">
-                      {data?.product?.variants?.length > 0 ? "Chọn kích thước:" : "Kích cỡ:"}
+                      {product?.variants?.length > 0 ? "Chọn kích thước:" : "Kích cỡ:"}
                     </span>
                     <div className="product-sizes">
-                      {data?.product?.variants?.map(variant => {
+                      {product?.variants?.map(variant => {
                         const size = variant.attributes.find(item => item.attribute.slug === 'size').values[0];
                         return (
                           <button
@@ -137,6 +144,26 @@ export default function ProductDetail({}) {
       <section className="section-suggestions">
         <div className="container">
           <h2 className="section-suggestions-heading">Sản phẩm liên quan</h2>
+          <Container fluid>
+            <Row gutterWidth={15} style={{marginLeft: -20, marginRight: -20, justifyContent: 'center'}}>
+              {relatedLoading
+                ? <span>Đang tải...</span>
+                : relatedError
+                  ? <span>Error: {relatedError?.message}</span>
+                  : !relatedData.relatedProducts.edges.filter(({node}) => node.id !== product.id).length
+                    ? <span>Không tìm thấy sản phẩm nào</span>
+                    : relatedData.relatedProducts.edges.filter(({node}) => node.id !== product.id).map(({node}) => {
+                    const name = node.translation?.name || node.name;
+                    return (
+                      <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}} key={node.id}>
+                        <Card type="product" images={node.images} title={name.toUpperCase()} pricing={node.minimalVariantPrice} slug={node.slug} />
+                      </Col>
+                    )
+                  }
+                )
+              }
+            </Row>
+          </Container>
         </div>
       </section>
       <style jsx>{`

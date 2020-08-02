@@ -57,6 +57,9 @@ export const PRODUCT_DETAIL_QUERY = gql`
       seoTitle
       seoDescription
       slug
+      category {
+        id
+      }
       attributes {
         attribute {
           slug
@@ -105,6 +108,38 @@ export const PRODUCT_DETAIL_QUERY = gql`
       images {
         id
         url
+      }
+    }
+  }
+`
+
+export const RELATED_PRODUCTS_QUERY = gql`
+  query relatedProductsQuery($category: ID!) {
+    relatedProducts: products(first: 4, filter: {categories: [$category]}) {
+      edges {
+        node {
+          id
+          slug
+          name
+          description
+          seoTitle
+          seoDescription
+          translation(languageCode: VI) {
+            name
+            description
+            seoTitle
+            seoDescription
+          }
+          images {
+            id
+            url
+          }
+          minimalVariantPrice {
+            amount
+            currency
+          }
+          isAvailable
+        }
       }
     }
   }
