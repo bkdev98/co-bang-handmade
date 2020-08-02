@@ -28,6 +28,7 @@ export default function ProductDetail({}) {
     RELATED_PRODUCTS_QUERY,
     {
       variables: {category: productData?.product?.category?.id},
+      notifyOnNetworkStatusChange: true,
     }
   )
 
@@ -321,9 +322,14 @@ export async function getStaticProps({params}) {
 
   const apolloClient = initializeApollo()
 
-  await apolloClient.query({
+  const {data: productData} = await apolloClient.query({
     query: PRODUCT_DETAIL_QUERY,
     variables: {slug},
+  })
+
+  const {data: relatedData} = await apolloClient.query({
+    query: RELATED_PRODUCTS_QUERY,
+    variables: {category: productData?.product?.category?.id},
   })
 
   return {
