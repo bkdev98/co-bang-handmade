@@ -28,7 +28,6 @@ export default function ProductDetail({}) {
     RELATED_PRODUCTS_QUERY,
     {
       variables: {category: productData?.product?.category?.id},
-      notifyOnNetworkStatusChange: true,
     }
   )
 
