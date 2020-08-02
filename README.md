@@ -1,6 +1,6 @@
 # CBH Storefront
 
-![screenshot](https://github.com/bkdev98/co-bang-handmade/blob/master/assets/images/screenshot.png)
+![screenshot](https://github.com/quocs-studio/co-bang-handmade/blob/master/assets/images/screenshot.png)
 
 ***Note***: *This project is for demo purpose, which means it's not yet ready for production.*
 
@@ -39,7 +39,7 @@ These instructions will get you a copy of the project up and running on your loc
 Clone the repository:
 
 ```bash
-git clone https://github.com/bkdev98/co-bang-handmade.git
+git clone https://github.com/quocs-studio/co-bang-handmade.git
 ```
 
 Enter the project directory:
@@ -64,7 +64,7 @@ Go to http://localhost:3000 to access the storefront.
 
 ## License
 
-This project is licensed under the BSD-3-Clause License - see the [LICENSE](https://github.com/bkdev98/co-bang-handmade/blob/master/LICENSE) file for details
+This project is licensed under the BSD-3-Clause License - see the [LICENSE](https://github.com/quocs-studio/co-bang-handmade/blob/master/LICENSE) file for details
 
 **Crafted with ❤️ by [Quocs Studio](https://quocs.com)**
 
