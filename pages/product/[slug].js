@@ -16,7 +16,7 @@ import HighlightIcon from '../../components/highlight-icon'
 export default function ProductDetail({}) {
   const router = useRouter()
   const { slug } = router.query
-  const { data: {product} } = useQuery(
+  const { data: productData } = useQuery(
     PRODUCT_DETAIL_QUERY,
     {
       variables: {slug},
@@ -27,18 +27,18 @@ export default function ProductDetail({}) {
   const { data: relatedData, loading: relatedLoading, error: relatedError } = useQuery(
     RELATED_PRODUCTS_QUERY,
     {
-      variables: {category: product?.category?.id},
+      variables: {category: productData?.product?.category?.id},
       notifyOnNetworkStatusChange: true,
     }
   )
 
-  const [selectedVariant, setSelectedVariant] = useState(product?.variants?.[0]);
+  const [selectedVariant, setSelectedVariant] = useState(productData?.product?.variants?.[0]);
 
-  const name = product?.translation?.name || product?.name;
+  const name = productData?.product?.translation?.name || productData?.product?.name;
 
-  const highlights = product?.attributes?.find(attr => attr.attribute.slug === 'highlight')?.values;
+  const highlights = productData?.product?.attributes?.find(attr => attr.attribute.slug === 'highlight')?.values;
   
-  const promises = product?.attributes?.find(attr => attr.attribute.slug === 'promise')?.values;
+  const promises = productData?.product?.attributes?.find(attr => attr.attribute.slug === 'promise')?.values;
 
   return (
     <>
@@ -51,7 +51,7 @@ export default function ProductDetail({}) {
             <Row gutterWidth={15}>
               <Col lg={7} sm={12} xs={12}>
                 <div className="image-carousel">
-                  <Carousel images={product?.images} />
+                  <Carousel images={productData?.product?.images} />
                 </div>
               </Col>
               <Col lg={5} sm={12} xs={12}>
@@ -62,10 +62,10 @@ export default function ProductDetail({}) {
                   </div>
                   <div className="product-variant">
                     <span className="product-attribute-title">
-                      {product?.variants?.length > 0 ? "Chọn kích thước:" : "Kích cỡ:"}
+                      {productData?.product?.variants?.length > 0 ? "Chọn kích thước:" : "Kích cỡ:"}
                     </span>
                     <div className="product-sizes">
-                      {product?.variants?.map(variant => {
+                      {productData?.product?.variants?.map(variant => {
                         const size = variant.attributes.find(item => item.attribute.slug === 'size').values[0];
                         return (
                           <button
@@ -150,9 +150,9 @@ export default function ProductDetail({}) {
                 ? <span>Đang tải...</span>
                 : relatedError
                   ? <span>Error: {relatedError?.message}</span>
-                  : !relatedData.relatedProducts.edges.filter(({node}) => node.id !== product.id).length
+                  : !relatedData.relatedProducts.edges.filter(({node}) => node.id !== productData?.product?.id).length
                     ? <span>Không tìm thấy sản phẩm nào</span>
-                    : relatedData.relatedProducts.edges.filter(({node}) => node.id !== product.id).map(({node}) => {
+                    : relatedData.relatedProducts.edges.filter(({node}) => node.id !== productData?.product?.id).map(({node}) => {
                     const name = node.translation?.name || node.name;
                     return (
                       <Col lg={3} sm={6} xs={6} style={{marginBottom: 15}} key={node.id}>
